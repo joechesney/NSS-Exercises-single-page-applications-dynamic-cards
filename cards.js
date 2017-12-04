@@ -37,9 +37,16 @@ createButton.addEventListener("click", function(ev) {
     // use the array of buttons to select this element and give its 'delete' button an event listener to delete itself
     deleteB[counter].addEventListener("click", function (event) {
         // assign the card, by id, to a new var
-        let newCardThis = document.getElementById(`divvy${counter}`);
+        // let newCardThis = document.getElementById(`divvy${counter}`);
+
         // remove 'this' element
-        containerDiv.removeChild(newCardThis);
+        // containerDiv.removeChild(document.getElementById(`divvy${counter}`));
+
+        // at first, the above code worked. Then somehow it just stopped working???
+        // so i just decided to do it the lame way, and have to specify which element to delete in this more vague way
+        // actually, this is probably the better way to do it
+        // same thing as this: event.target.parentNode.parentNode.removeChild(event.target.parentNode);
+        containerDiv.removeChild(event.target.parentNode);
     });
 
     
